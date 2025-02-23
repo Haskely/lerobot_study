@@ -2,22 +2,22 @@ import time
 from lerobot.common.policies.act.modeling_act import ACTPolicy
 from lerobot.common.robot_devices.utils import busy_wait
 import torch
-from robot import robot
+from robot import robot, safe_connect
 import cv2
 
-inference_time_s = 60
+inference_time_s = 300
 fps = 30
 device = "cuda"  # TODO: On Mac, use "mps" or "cpu"
 
 
-ckpt_path = r"data\outputs\train\act\checkpoints\040000\pretrained_model"
+ckpt_path = r"data\outputs\train\act_2\checkpoints\020000\pretrained_model"
 policy = ACTPolicy.from_pretrained(ckpt_path)
 
 policy.to(device)
 policy.eval()
 print(f"Model loaded - {ckpt_path}")
 
-with robot as robot:
+with safe_connect(robot):
     print("Robot connected")
 
     with torch.inference_mode(), torch.no_grad():

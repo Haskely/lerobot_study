@@ -24,6 +24,8 @@ train_config = TrainPipelineConfig(
         enable=True,
         project="lerobot",
     ),
+    steps=40000,
+    save_freq=10000,
 )
 
 if __name__ == "__main__":
@@ -36,7 +38,7 @@ if __name__ == "__main__":
         f"{train_config.output_dir.name}.log"
     )
     train_log_path.parent.mkdir(parents=True, exist_ok=True)
-    file_handler = logging.FileHandler(train_log_path)
+    file_handler = logging.FileHandler(train_log_path, encoding="utf-8")
     logging.getLogger().addHandler(file_handler)
 
     train(train_config)
