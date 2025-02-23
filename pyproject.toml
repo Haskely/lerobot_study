@@ -31,3 +31,6 @@ dev = [
     "debugpy>=1.8.12",
     "pre-commit>=4.1.0",
 ]
+jupyter = [
+    "ipykernel>=6.29.5",
+]
