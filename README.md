@@ -104,6 +104,8 @@ python train.py
 python evaluate.py
 ```
 
+![train_loss-wandb](./train_loss-wandb.png)
+
 ## 注意事项
 
 - 使用前请确保正确配置了机器人的硬件参数
