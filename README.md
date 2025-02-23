@@ -41,8 +41,8 @@ uv pip install -e lerobot[dynamixel,pi0,pusht]
 
 **使用方法：**
 ```bash
-# 删除 .cache 文件夹
-rm -rf .cache
+# 删除标定数据文件夹
+rm -r ./data/calibration/koch
 # 运行重置脚本进行标定
 python reset.py
 ```
